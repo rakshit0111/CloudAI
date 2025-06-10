@@ -1,9 +1,12 @@
-
+"use client";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  router.push("/sign-in");
   return (
-   <div>Hello
-    <button className="btn btn-primary">DaisyUI Test</button>
+   <div>
+    Hey
    </div>
   );
 }
