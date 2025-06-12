@@ -56,7 +56,7 @@ export default function Page() {
 
             {/* Additional Links */}
             <div className="text-center text-sm text-gray-400 mt-4">
-              <p>Don't have an account? <a href="#" className="text-blue-400 hover:underline">Create your account</a></p>
+              <p>Do not have an account? <a href="#" className="text-blue-400 hover:underline">Create your account</a></p>
               <a href="#" className="inline-block mt-3 text-gray-400 hover:text-blue-400">Continue with SSO</a>
             </div>
           </div>

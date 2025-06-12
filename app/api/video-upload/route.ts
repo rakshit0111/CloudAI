@@ -13,7 +13,7 @@ cloudinary.config({
 
 interface CloudinaryUploadResult {
     public_id: string;
-    [key: string]: any;
+    [key: string]: unknown;
     bytes: number;
     duration?: number;
 }
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
-        let result = null as CloudinaryUploadResult;
+        let result = undefined;
         if(file.size > 40 * 1024 * 1024) { // 40 MB limit{}
         result = await new Promise<CloudinaryUploadResult>(
             (resolve, reject) => {

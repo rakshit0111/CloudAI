@@ -1,5 +1,6 @@
 import { SignUp } from '@clerk/nextjs';
 import { Cloud, ImageIcon, VideoIcon, Download } from 'lucide-react';
+import Link from 'next/link'; 
 
 export default function Page() {
   return (
@@ -56,7 +57,7 @@ export default function Page() {
 
             {/* Additional Links */}
             <div className="text-center text-sm text-gray-400 mt-4">
-              <p>Already have an account? <a href="/sign-in" className="text-blue-400 hover:underline">Sign in</a></p>
+              <p>Already have an account? <Link href="/sign-in" className="text-blue-400 hover:underline">Sign in</Link></p>
               <a href="#" className="inline-block mt-3 text-gray-400 hover:text-blue-400">Continue with SSO</a>
             </div>
           </div>
