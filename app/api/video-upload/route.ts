@@ -46,35 +46,8 @@ export async function POST(req: NextRequest) {
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
-        let result = undefined;
-        if(file.size > 40 * 1024 * 1024) { // 40 MB limit{}
-        result = await new Promise<CloudinaryUploadResult>(
-            (resolve, reject) => {
-                const uploadStream = cloudinary.uploader.upload_stream(
-                    {
-                        folder : "video-uploads",
-                        resource_type : "video",
-                        eager: [
-                        { quality: "auto", format: "mp4", codec: "h264" }
-                        ],
-                        eager_async: true
-                    },
-                    (error, result) => {
-                        if(error) {
-                            reject(error);
-                        }
-                        resolve(result as CloudinaryUploadResult);
-                    }
-                );
-
-                uploadStream.end(buffer);
-            }
-        );
-        }
-        else
-        {
-            result = await new Promise<CloudinaryUploadResult>(
-            (resolve, reject) => {
+         const result = await new Promise<CloudinaryUploadResult>(
+            (resolve,reject) =>{
                 const uploadStream = cloudinary.uploader.upload_stream(
                     {
                         folder : "video-uploads",
@@ -86,8 +59,9 @@ export async function POST(req: NextRequest) {
                            }
                         ]
                     },
-                    (error, result) => {
-                        if(error) {
+                    (error,result) =>{
+                        if(error)
+                        {
                             reject(error);
                         }
                         resolve(result as CloudinaryUploadResult);
@@ -96,8 +70,7 @@ export async function POST(req: NextRequest) {
 
                 uploadStream.end(buffer);
             }
-        );
-        }
+        )
 
         const video = await prisma.video.create({
             data: {

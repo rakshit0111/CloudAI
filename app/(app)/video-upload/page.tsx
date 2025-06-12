@@ -17,7 +17,7 @@ const VideoUploadPage = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const MAX_FILE_SIZE = 70 * 1024 * 1024; // 70MB
+  const MAX_FILE_SIZE = 40 * 1024 * 1024; // 70MB
   const MAX_FILE_SIZE_MB = MAX_FILE_SIZE / (1024 * 1024);
 
   const handleDrag = (e: React.DragEvent) => {
@@ -239,8 +239,7 @@ const VideoUploadPage = () => {
                       Drag & drop your video or <span className="text-blue-500">browse</span>
                     </p>
                     <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
-                      Maximum file size: {MAX_FILE_SIZE_MB}MB
-                      Compression till 40MB FILES  
+                      Maximum file size: {MAX_FILE_SIZE_MB}MB 
                     </p>
                   </>
                 )}
